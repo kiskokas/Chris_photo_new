@@ -19,7 +19,7 @@ const HomeSection = () => {
         style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
       >
         <div>
-          <h1 className="text-5xl font-bold mb-4 text-white">I am your Photographer</h1>
+          <h1 className="text-5xl text-center font-bold mb-4 text-white">I am your Photographer</h1>
           <p className="text-2xl text-center font-bold mb-4 text-white">Capturing Moments, Creating Memories</p>
         </div>
       </div>
