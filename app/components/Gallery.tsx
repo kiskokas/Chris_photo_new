@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Image from 'next/image';
 
 const Gallery = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -44,10 +45,12 @@ const Gallery = () => {
       <div id="gallery" className="p-5">
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
           {images.map((src, index) => (
-            <img
+            <Image
               key={index}
               src={src}
               alt={`Photo ${index + 1}`}
+              width={500}
+              height={500}
               className="w-full mb-4 cursor-pointer hover:scale-105 transition-transform"
               onClick={() => openLightbox(index)}
             />

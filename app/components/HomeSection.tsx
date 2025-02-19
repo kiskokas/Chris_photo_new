@@ -1,6 +1,5 @@
 "use client";
 
-import { Fade } from 'react-awesome-reveal';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
