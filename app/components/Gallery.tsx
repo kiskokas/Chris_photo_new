@@ -37,7 +37,7 @@ const Gallery = () => {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div>
         <h2 className="text-3xl text-center font-bold mt-4">Gallery</h2>
@@ -53,6 +53,7 @@ const Gallery = () => {
               height={300}
               className="w-full mb-4 cursor-pointer hover:scale-90 transition-transform"
               onClick={() => openLightbox(index)}
+              priority={index < 4}
             />
           ))}
         </div>
