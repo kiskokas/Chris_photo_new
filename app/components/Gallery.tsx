@@ -6,6 +6,7 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from 'next/image';
+import { useEffect } from "react";
 
 const Gallery = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -31,6 +32,10 @@ const Gallery = () => {
     setCurrentIndex(index);
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    console.log("Gallery component mounted");
+  }, []);
 
   return (
     <motion.div

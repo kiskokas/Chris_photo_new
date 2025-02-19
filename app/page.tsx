@@ -12,7 +12,9 @@ const Home = () => {
       <Header />
       <HomeSection />
       <AboutSection />
-      <Gallery />
+      <main className="min-h-screen">
+        <Gallery />
+      </main>
       <ContactSection />
       <Footer />
       <ScrollToTop />
