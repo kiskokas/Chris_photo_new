@@ -51,7 +51,8 @@ const Gallery = () => {
               alt={`Photo ${index + 1}`}
               width={500}
               height={500}
-              className="w-full mb-4 cursor-pointer hover:scale-105 transition-transform"
+              layout="responsive"
+              className="w-full mb-4 cursor-pointer hover:scale-90 transition-transform"
               onClick={() => openLightbox(index)}
             />
           ))}
