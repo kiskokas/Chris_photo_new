@@ -12,9 +12,7 @@ const Home = () => {
       <Header />
       <HomeSection />
       <AboutSection />
-      <main className="flex-grow">
-        <Gallery />
-      </main>
+      <Gallery />
       <ContactSection />
       <Footer />
       <ScrollToTop />
