@@ -12,7 +12,7 @@ const Home = () => {
       <Header />
       <HomeSection />
       <AboutSection />
-      <main className="min-h-screen">
+      <main className="flex-grow">
         <Gallery />
       </main>
       <ContactSection />

@@ -42,23 +42,22 @@ const Gallery = () => {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div>
         <h2 className="text-3xl text-center font-bold mt-4">Gallery</h2>
       </div>
       <div id="gallery" className="p-5">
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+        <div className="columns-3xs lg:columns-4 gap-3">
           {images.map((src, index) => (
             <Image
               key={index}
               src={src}
               alt={`Photo ${index + 1}`}
-              width={300}
-              height={300}
+              width={500}
+              height={500}
               className="w-full mb-4 cursor-pointer hover:scale-90 transition-transform"
               onClick={() => openLightbox(index)}
-              priority={index < 4}
             />
           ))}
         </div>
