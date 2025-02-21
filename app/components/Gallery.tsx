@@ -26,13 +26,13 @@ const Gallery = ({ images }: { images: ImageData[] }) => {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div>
         <h2 className="text-3xl text-center font-bold mt-4">Gallery</h2>
       </div>
-      <div id="gallery" className="p-5">
+      <div id="gallery" className="p-5 bg-white dark:bg-gray-900">
         <div className="columns-3xs lg:columns-4 gap-3">
           {images.map((image, index) => (
             <Image
