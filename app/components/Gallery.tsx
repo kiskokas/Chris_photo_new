@@ -5,26 +5,15 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import Image from 'next/image';
-import { useEffect } from "react";
+import Image from "next/image";
 
-const Gallery = () => {
+type ImageData = {
+  src: string;
+  blurDataURL: string;
+};
+
+const Gallery = ({ images }: { images: ImageData[] }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-
-  const images = [
-    "/images/photo1.jpg",
-    "/images/photo2.jpg",
-    "/images/photo3.jpg",
-    "/images/photo4.jpg",
-    "/images/photo5.jpg",
-    "/images/photo6.jpg",
-    "/images/photo7.jpg",
-    "/images/photo8.jpg",
-    "/images/photo9.jpg",
-    "/images/photo10.jpg",
-    // Add more images as needed
-  ];
-
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,10 +21,6 @@ const Gallery = () => {
     setCurrentIndex(index);
     setIsOpen(true);
   };
-
-  useEffect(() => {
-    console.log("Gallery component mounted");
-  }, []);
 
   return (
     <motion.div
@@ -49,21 +34,23 @@ const Gallery = () => {
       </div>
       <div id="gallery" className="p-5">
         <div className="columns-3xs lg:columns-4 gap-3">
-          {images.map((src, index) => (
+          {images.map((image, index) => (
             <Image
               key={index}
-              src={src}
+              src={image.src}
               alt={`Photo ${index + 1}`}
               width={500}
               height={500}
               className="w-full mb-4 cursor-pointer hover:scale-90 transition-transform"
               onClick={() => openLightbox(index)}
+              placeholder="blur"
+              blurDataURL={image.blurDataURL}
             />
           ))}
         </div>
         {isOpen && (
           <Lightbox
-            slides={images.map((src) => ({ src }))}
+            slides={images.map((image) => ({ src: image.src }))}
             open={isOpen}
             index={currentIndex}
             close={() => setIsOpen(false)}
