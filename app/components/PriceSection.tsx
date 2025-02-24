@@ -42,7 +42,7 @@ const PriceSection = () => {
       id="prices"
     >
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Árak</h2>
+        <h2 className="text-3xl font-bold mb-8 text-black">Árak</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg, index) => (
             <div
@@ -54,8 +54,8 @@ const PriceSection = () => {
                   NÉPSZERŰ
                 </span>
               )}
-              <h3 className="text-xl font-semibold mb-4">{pkg.name}</h3>
-              <p className="text-2xl font-bold mb-2">{pkg.price}</p>
+              <h3 className="text-xl font-semibold mb-4 text-black">{pkg.name}</h3>
+              <p className="text-2xl font-bold mb-2 text-black">{pkg.price}</p>
               <p className="text-gray-700">✅ {pkg.duration}</p>
               <p className="text-gray-700">✅ {pkg.images}</p>
               <button
