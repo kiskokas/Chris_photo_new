@@ -69,7 +69,7 @@ const PriceSection = () => {
         </div>
         
         <div className="mt-12 text-left max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold mb-4">Általános információk:</h3>
+          <h3 className="text-2xl font-bold mb-4 text-black">Általános információk:</h3>
           <ul className="list-disc list-inside text-gray-700">
             <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, esetben a stúdió bérleti díja a csomagáron felül fizetendő (11.000-13.000 Ft).</li>
             <li>Az elkészült nyers képek közül Te választhatod ki a kedvenceidet, amiket utómunkázok, retusálok.</li>
