@@ -13,33 +13,48 @@ async function getImages() {
 
   const imageFiles = fs
     .readdirSync(imagesDir)
-    .filter((file) => validExtensions.includes(path.extname(file).toLowerCase()))
-    .map((file) => `/images/${file}`);
+    .filter((file) => validExtensions.includes(path.extname(file).toLowerCase()));
 
-  const images = await Promise.all(
-    imageFiles.map(async (src) => {
-      try {
-        const filePath = path.join(imagesDir, src.replace("/images/", ""));
-        const buffer = fs.readFileSync(filePath);
-        const { base64 } = await getPlaiceholder(buffer);
-        return { src, blurDataURL: base64 };
-      } catch (error) {
-        console.error(`Error processing image ${src}:`, error);
-        return { src, blurDataURL: "" };
-      }
-    })
-  );
+  type CategoryName = "Portrait" | "Family" | "Child" | "Nature";
 
-  return images;
+  const categorizedImages: Record<CategoryName, { src: string; blurDataURL: string }[]> = {
+    Portrait: [],
+    Family: [],
+    Child: [],
+    Nature: [],
+  };
+
+  for (const file of imageFiles) {
+    const category = getCategoryFromFilename(file) as CategoryName; // Ensure the type matches
+    const src = `/images/${file}`;
+    const filePath = path.join(imagesDir, file);
+    const buffer = fs.readFileSync(filePath);
+    const { base64 } = await getPlaiceholder(buffer);
+    
+    categorizedImages[category].push({ src, blurDataURL: base64 });
+  }
+
+  return Object.entries(categorizedImages).map(([name, images]) => ({
+    name,
+    images
+  }));
+}
+
+function getCategoryFromFilename(filename: string): string {
+  if (filename.startsWith("portrait")) return "Portrait";
+  if (filename.startsWith("family")) return "Family";
+  if (filename.startsWith("child")) return "Child";
+  if (filename.startsWith("nature")) return "Nature";
+  return "Portrait"; // Default category if none matched
 }
 
 export default async function GalleryPage() {
-  const images = await getImages();
+  const categories = await getImages();
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
-      <Gallery images={images} />
+      <Gallery categories={categories} />
       <Footer />
       <ScrollToTop />
     </div>
