@@ -33,7 +33,7 @@ const Gallery = ({ images }: { images: ImageData[] }) => {
         <h2 className="text-3xl text-center font-bold mt-4">Gallery</h2>
       </div>
       <div id="gallery" className="p-5 bg-white dark:bg-gray-900">
-        <div className="columns-3xs lg:columns-4 gap-3">
+        <div className="columns-3xs lg:columns-10 gap-3">
           {images.map((image, index) => (
             <Image
               key={index}
