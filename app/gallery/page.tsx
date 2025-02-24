@@ -15,13 +15,14 @@ async function getImages() {
     .readdirSync(imagesDir)
     .filter((file) => validExtensions.includes(path.extname(file).toLowerCase()));
 
-  type CategoryName = "Portrait" | "Family" | "Child" | "Nature";
+  type CategoryName = "Portrait" | "Family" | "Child" | "Nature" | "Uncategorized";
 
   const categorizedImages: Record<CategoryName, { src: string; blurDataURL: string }[]> = {
     Portrait: [],
     Family: [],
     Child: [],
     Nature: [],
+    Uncategorized: []
   };
 
   for (const file of imageFiles) {
@@ -34,10 +35,13 @@ async function getImages() {
     categorizedImages[category].push({ src, blurDataURL: base64 });
   }
 
-  return Object.entries(categorizedImages).map(([name, images]) => ({
-    name,
-    images
-  }));
+  // Exclude "Uncategorized" from the results
+  return Object.entries(categorizedImages)
+    .filter(([name]) => name !== "Uncategorized")
+    .map(([name, images]) => ({
+      name,
+      images
+    }));
 }
 
 function getCategoryFromFilename(filename: string): string {
@@ -45,7 +49,7 @@ function getCategoryFromFilename(filename: string): string {
   if (filename.startsWith("family")) return "Family";
   if (filename.startsWith("child")) return "Child";
   if (filename.startsWith("nature")) return "Nature";
-  return "Portrait"; // Default category if none matched
+  return "Uncategorized"; // Default category if none matched
 }
 
 export default async function GalleryPage() {
