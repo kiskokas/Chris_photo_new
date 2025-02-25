@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const imagesDir = path.join(process.cwd(), "public/images");
 
@@ -59,6 +60,7 @@ export default async function GalleryPage() {
     <div className="min-h-screen flex flex-col justify-between bg-cyan-100">
       <Header />
       <Gallery categories={categories} />
+      <SpeedInsights />
       <Footer />
       <ScrollToTop />
     </div>

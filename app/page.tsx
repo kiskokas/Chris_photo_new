@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection';
 import PriceSection from './components/PriceSection';
 import ContactSection from './components/ContactSection';
 import ScrollToTop from './components/ScrollToTop';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <HomeSection />
       <AboutSection />
+      <SpeedInsights />
       <PriceSection />
       <ContactSection />
       <Footer />
