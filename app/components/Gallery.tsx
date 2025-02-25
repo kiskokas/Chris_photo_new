@@ -32,7 +32,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="pt-20"
     >
-      <div className="p-5 bg-white dark:bg-gray-900">
+      <div className="p-5 bg-cyan-100 dark:bg-gray-900">
         <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
         <div id="gallery" className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {categories.map((category) => (
@@ -50,7 +50,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
                 placeholder="blur"
                 blurDataURL={category.images[0].blurDataURL}
               />
-              <div className="absolute bottom-0 left-0 w-full bg-pink-100 text-center py-2 rounded-b-lg text-gray-700 font-medium">
+              <div className="absolute bottom-0 left-0 w-full bg-cyan-300 text-center py-2 rounded-b-lg text-gray-700 font-medium">
                 {category.name}
               </div>
             </div>

@@ -25,7 +25,7 @@ const ContactSection = () => {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div id="contact" className="p-10 bg-white text-black">
+      <div id="contact" className="p-10 bg-cyan-100 text-black">
         <h2 className="text-3xl font-bold mb-6 text-center">Contact Me</h2>
         <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
           <div className="mb-4">
