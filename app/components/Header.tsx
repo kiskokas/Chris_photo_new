@@ -87,34 +87,34 @@ const Header = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-cyan-300 text-cyan-700 flex flex-col items-center z-50">
-          <Link href="/" className="py-2" onClick={closeMenu}>
+        <div className="absolute top-16 left-2rem right-0 bg-cyan-300 text-cyan-700 flex py-2 flex-col z-50">
+          <Link href="/" className="py-0.5" onClick={closeMenu}>
             Kezdőoldal
           </Link>
-          <a href="#about" className="py-2" onClick={closeMenu}>
+          <a href="#about" className="py-0.5" onClick={closeMenu}>
             Rólam
           </a>
-          <a href="#prices" className="py-2" onClick={closeMenu}>
+          <a href="#prices" className="py-0.5" onClick={closeMenu}>
             Csomagok és árak
           </a>
           <div className="py-2">
             <span className="font-bold">Galéria</span>
-            <div className="bg-cyan-50 text-cyan-700 rounded-md shadow-lg w-full text-center">
-              <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+            <div className="bg-cyan-50 text-cyan-700 rounded-md shadow-lg w-full">
+              <Link href="/gallery#portrait" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Portré
               </Link>
-              <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#family" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Családi
               </Link>
-              <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#child" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Gyerek
               </Link>
-              <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#nature" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Természet
               </Link>
             </div>
           </div>
-          <a href="#contact" className="py-2" onClick={closeMenu}>
+          <a href="#contact" className="py-0.5" onClick={closeMenu}>
             Kapcsolat
           </a>
         </div>
