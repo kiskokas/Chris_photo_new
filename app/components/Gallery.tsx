@@ -32,7 +32,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="pt-20"
     >
-      <div className="p-5 bg-cyan-100 dark:bg-gray-900">
+      <div className="p-5 bg-cyan-100 dark:bg-cyan-100">
         <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
         <div id="gallery" className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {categories.map((category) => (
