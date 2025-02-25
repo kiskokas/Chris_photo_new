@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
@@ -25,6 +25,16 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
     setIsOpen(true);
   };
 
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -33,10 +43,11 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       className="pt-20"
     >
       <div className="p-5 bg-cyan-100 dark:bg-cyan-100">
-        <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
+        <h2 className="text-3xl font-bold text-cyan-700 text-center mb-8">Galéria</h2>
         <div id="gallery" className="flex flex-col md:flex-row items-center justify-around p-5 gap-4">
           {categories.map((category) => (
             <div
+              id={category.name.toLowerCase()} // Ensure IDs are unique and lowercase
               key={category.name}
               className="relative w-[300px] h-[400px] overflow-hidden flex justify-center items-center cursor-pointer hover:scale-105"
               onClick={() => openLightbox(category)}

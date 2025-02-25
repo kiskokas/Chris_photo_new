@@ -13,11 +13,11 @@ export default function Home() {
       <Header />
       <HomeSection />
       <AboutSection />
-      <SpeedInsights />
       <PriceSection />
       <ContactSection />
       <Footer />
       <ScrollToTop />
+      <SpeedInsights />
     </div>
   );
 }
