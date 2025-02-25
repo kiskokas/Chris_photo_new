@@ -100,16 +100,16 @@ const Header = () => {
           <div className="py-2">
             <span className="font-bold">Galéria</span>
             <div className="bg-cyan-50 text-cyan-700 rounded-md shadow-lg w-full text-center">
-              <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Portré
               </Link>
-              <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Családi
               </Link>
-              <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Gyerek
               </Link>
-              <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
+              <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Természet
               </Link>
             </div>
