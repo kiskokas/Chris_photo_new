@@ -99,7 +99,7 @@ const Header = () => {
           </a>
           <div className="py-2">
             <span className="font-bold">Galéria</span>
-            <div className="bg-white dark:bg-cyan-300 rounded-md shadow-lg w-full text-center">
+            <div className="bg-white dark:bg-cyan-50 text-cyan-700 rounded-md shadow-lg w-full text-center">
               <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Portré
               </Link>
