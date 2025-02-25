@@ -59,7 +59,7 @@ const Header = () => {
             Galéria <span className="ml-1">▼</span>
           </button>
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 rounded-md shadow-lg z-50">
+            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-cyan-300 rounded-md shadow-lg z-50">
               <div className="py-1" role="menu">
                 <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                   Portré
@@ -99,7 +99,7 @@ const Header = () => {
           </a>
           <div className="py-2">
             <span className="font-bold">Galéria</span>
-            <div className="bg-white dark:bg-gray-700 rounded-md shadow-lg w-full text-center">
+            <div className="bg-white dark:bg-cyan-300 rounded-md shadow-lg w-full text-center">
               <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600" onClick={closeMenu}>
                 Portré
               </Link>
