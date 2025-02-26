@@ -35,15 +35,15 @@ const Header = () => {
     <header className="bg-gray-300 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
       <h1 className="text-2xl">Chris Photo</h1>
       <nav className="hidden md:flex space-x-4">
-        <Link href="/" className="hover:underline">Kezdőoldal</Link>
-        <a href="#about" className="hover:underline">Rólam</a>
-        <a href="#prices" className="hover:underline">Csomagok és árak</a>
+        <Link href="/" className="hover:shadow-lg">Kezdőoldal</Link>
+        <Link href="/#about" className="hover:shadow-lg">Rólam</Link>
+        <Link href="/#prices" className="hover:shadow-lg">Csomagok és árak</Link>
         <div 
           className="relative inline-block text-left"
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-          <button className="hover:underline focus:outline-none flex items-center">
+          <button className="hover:shadow-lg focus:outline-none flex items-center">
             Galéria <span className="ml-1">+</span>
           </button>
           <AnimatePresence>
@@ -73,7 +73,7 @@ const Header = () => {
             )}
           </AnimatePresence>
         </div>
-        <a href="#contact" className="hover:underline">Kapcsolat</a>
+        <Link href="/#contact" className="hover:shadow-lg">Kapcsolat</Link>
       </nav>
       <div className="md:hidden">
         <button onClick={toggleMenu} className="focus:outline-none">
@@ -92,8 +92,8 @@ const Header = () => {
             className="absolute top-16 left-0 right-0 bg-gray-300 text-gray-700 flex flex-col py-1 z-50 shadow-lg"
           >
             <Link href="/" className="py-1 text-center" onClick={toggleMenu}>Kezdőoldal</Link>
-            <a href="#about" className="py-1 text-center" onClick={toggleMenu}>Rólam</a>
-            <a href="#prices" className="py-1 text-center" onClick={toggleMenu}>Csomagok és árak</a>
+            <Link href="/#about" className="py-1 text-center" onClick={toggleMenu}>Rólam</Link>
+            <Link href="/#prices" className="py-1 text-center" onClick={toggleMenu}>Csomagok és árak</Link>
             <div className="py-2 text-center">
               <span className="font-bold">Galéria</span>
               <div className="bg-gray-50 text-gray-700 rounded-md shadow-lg w-full">
@@ -111,7 +111,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <a href="#contact" className="py-1 text-center" onClick={toggleMenu}>Kapcsolat</a>
+            <Link href="/#contact" className="py-1 text-center" onClick={toggleMenu}>Kapcsolat</Link>
           </motion.div>
         )}
       </AnimatePresence>

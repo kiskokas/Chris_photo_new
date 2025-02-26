@@ -41,7 +41,7 @@ const PriceSection = () => {
       className="py-16 bg-gray-50"
       id="prices"
     >
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center px-3">
         <h2 className="text-3xl font-bold mb-8 text-black">Árak</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg, index) => (
@@ -68,7 +68,7 @@ const PriceSection = () => {
           ))}
         </div>
         
-        <div className="mt-12 text-left max-w-3xl mx-auto">
+        <div className="md:w-1/2 mt-12 md:mt-0 text-left max-w-3xl mx-auto px-5">
           <h3 className="text-2xl font-bold mb-4 text-black">Általános információk:</h3>
           <ul className="list-disc list-inside text-gray-700">
             <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, ez esetben a stúdió bérleti díja a csomagáron felül fizetendő (11.000-13.000 Ft).</li>
