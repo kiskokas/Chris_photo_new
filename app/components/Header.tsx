@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header className="bg-gray-300 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
-      <h1 className="text-2xl">Chris Photo</h1>
+      <Link href="/" className="text-2xl hover:shadow-lg">Chris Photo</Link>
       <nav className="hidden md:flex space-x-4">
         <Link href="/" className="hover:shadow-lg">Kezdőoldal</Link>
         <Link href="/#about" className="hover:shadow-lg">Rólam</Link>
@@ -56,16 +56,16 @@ const Header = () => {
                 className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-300 rounded-md shadow-lg z-50"
               >
                 <div className="py-1" role="menu">
-                  <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Portré
                   </Link>
-                  <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Családi
                   </Link>
-                  <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Gyerek
                   </Link>
-                  <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Természet
                   </Link>
                 </div>
@@ -89,7 +89,7 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 right-0 bg-gray-300 text-gray-700 flex flex-col py-1 z-50 shadow-lg"
+            className="absolute top-16 left-2rem right-0 bg-gray-300 text-gray-700 flex flex-col py-1 z-50 shadow-lg"
           >
             <Link href="/" className="py-1 text-center" onClick={toggleMenu}>Kezdőoldal</Link>
             <Link href="/#about" className="py-1 text-center" onClick={toggleMenu}>Rólam</Link>
