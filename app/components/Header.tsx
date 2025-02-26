@@ -29,11 +29,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    setIsDropdownOpen(false);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -43,30 +38,40 @@ const Header = () => {
         <Link href="/" className="hover:underline">Kezdőoldal</Link>
         <a href="#about" className="hover:underline">Rólam</a>
         <a href="#prices" className="hover:underline">Csomagok és árak</a>
-        <div className="relative inline-block text-left">
-          <button 
-            onClick={toggleDropdown}
-            className="hover:underline focus:outline-none flex items-center">
-            Galéria <span className="ml-1">▼</span>
+        <div 
+          className="relative inline-block text-left"
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <button className="hover:underline focus:outline-none flex items-center">
+            Galéria <span className="ml-1">+</span>
           </button>
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-cyan-300 rounded-md shadow-lg z-50">
-              <div className="py-1" role="menu">
-                <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
-                  Portré
-                </Link>
-                <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
-                  Családi
-                </Link>
-                <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
-                  Gyerek
-                </Link>
-                <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
-                  Természet
-                </Link>
-              </div>
-            </div>
-          )}
+          <AnimatePresence>
+            {isDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5 }}
+                className="absolute right-0 mt-2 w-48 bg-white dark:bg-cyan-300 rounded-md shadow-lg z-50"
+              >
+                <div className="py-1" role="menu">
+                  <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                    Portré
+                  </Link>
+                  <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                    Családi
+                  </Link>
+                  <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                    Gyerek
+                  </Link>
+                  <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                    Természet
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
         <a href="#contact" className="hover:underline">Kapcsolat</a>
       </nav>
