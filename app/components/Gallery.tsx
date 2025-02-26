@@ -42,14 +42,14 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="pt-20"
     >
-      <div className="p-5 bg-cyan-100 dark:bg-cyan-100">
-        <h2 className="text-3xl font-bold text-cyan-700 text-center mb-8">Galéria</h2>
+      <div className="p-5 bg-gray-100 dark:bg-gray-100">
+        <h2 className="text-3xl font-bold text-gray-700 text-center mb-8">Galéria</h2>
         <div id="gallery" className="flex flex-col md:flex-row items-center justify-around p-5 gap-4">
           {categories.map((category) => (
             <div
               id={category.name.toLowerCase()} // Ensure IDs are unique and lowercase
               key={category.name}
-              className="relative w-[300px] h-[400px] overflow-hidden flex justify-center items-center cursor-pointer hover:scale-105"
+              className="relative w-[300px] h-[400px] overflow-hidden flex justify-center items-center cursor-pointer hover:scale-105 hover:shadow-lg"
               onClick={() => openLightbox(category)}
             >
               <Image
@@ -61,7 +61,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
                 placeholder="blur"
                 blurDataURL={category.images[0].blurDataURL}
               />
-              <div className="absolute bottom-0 left-0 w-full bg-cyan-300 text-center py-2 rounded-b-lg text-gray-700 font-medium">
+              <div className="absolute bottom-0 left-0 w-full bg-gray-300 text-center py-2 rounded-b-lg text-gray-700 font-medium  hover:bg-gray-700 hover:shadow-lg hover:text-gray-50">
                 {category.name}
               </div>
             </div>

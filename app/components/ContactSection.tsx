@@ -25,11 +25,11 @@ const ContactSection = () => {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div id="contact" className="p-10 bg-cyan-100 text-black">
-        <h2 className="text-3xl font-bold mb-6 text-center">Contact Me</h2>
+      <div id="contact" className="p-10 bg-gray-200 text-black">
+        <h2 className="text-3xl font-bold mb-6 text-center">Kapcsolat</h2>
         <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700">Name</label>
+            <label className="block text-gray-700">Név</label>
             <input
               type="text"
               name="name"
@@ -51,7 +51,7 @@ const ContactSection = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Message</label>
+            <label className="block text-gray-700">Üzenet</label>
             <textarea
               name="message"
               value={formData.message}
@@ -60,8 +60,8 @@ const ContactSection = () => {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-            Send
+          <button type="submit" className="w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 hover:shadow-lg">
+            Küldés
           </button>
         </form>
       </div>

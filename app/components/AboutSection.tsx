@@ -14,7 +14,7 @@ const AboutSection = () => {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div id="about" className="flex flex-col md:flex-row items-center justify-around p-10 bg-cyan-100">
+      <div id="about" className="flex flex-col md:flex-row items-center justify-around p-10 bg-gray-200">
         <Image 
           src="/images/about-photo.jpg" 
           alt="Your Name" 
@@ -22,8 +22,8 @@ const AboutSection = () => {
           height={500}
           className="w-1/3 rounded-full" />
         <div className="md:w-1/2 mt-5 md:mt-0 text-center md:text-left text-black">
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <p>Hello! I am Christian, a passionate photographer based in Szombathely. I love capturing the beauty of the world through my lens. My journey into photography started...</p>
+          <h2 className="text-3xl font-bold mb-4">Rólam</h2>
+          <p>Helló! Krisztián vagyok, szenvedélyes fotós Szombathelyen. Szeretem lencsevégre kapni a világ szépségét. Elindult az utam a fotózás felé...</p>
         </div>
       </div>
     </motion.div>

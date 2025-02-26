@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-cyan-300 text-cyan-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
+    <header className="bg-gray-300 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
       <h1 className="text-2xl">Chris Photo</h1>
       <nav className="hidden md:flex space-x-4">
         <Link href="/" className="hover:underline">Kezdőoldal</Link>
@@ -53,7 +53,7 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5 }}
-                className="absolute right-0 mt-2 w-48 bg-white dark:bg-cyan-300 rounded-md shadow-lg z-50"
+                className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-300 rounded-md shadow-lg z-50"
               >
                 <div className="py-1" role="menu">
                   <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
@@ -89,14 +89,14 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 right-0 bg-cyan-300 text-cyan-700 flex flex-col py-1 z-50 shadow-lg"
+            className="absolute top-16 left-0 right-0 bg-gray-300 text-gray-700 flex flex-col py-1 z-50 shadow-lg"
           >
             <Link href="/" className="py-1 text-center" onClick={toggleMenu}>Kezdőoldal</Link>
             <a href="#about" className="py-1 text-center" onClick={toggleMenu}>Rólam</a>
             <a href="#prices" className="py-1 text-center" onClick={toggleMenu}>Csomagok és árak</a>
             <div className="py-2 text-center">
               <span className="font-bold">Galéria</span>
-              <div className="bg-cyan-50 text-cyan-700 rounded-md shadow-lg w-full">
+              <div className="bg-gray-50 text-gray-700 rounded-md shadow-lg w-full">
                 <Link href="/gallery#portrait" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={toggleMenu}>
                   Portré
                 </Link>
