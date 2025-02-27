@@ -38,7 +38,7 @@ const PriceSection = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="py-16 bg-gray-50"
+      className="py-16 bg-slate-50"
       id="prices"
     >
       <div className="container mx-auto text-center px-3">
@@ -50,16 +50,16 @@ const PriceSection = () => {
               className="bg-white p-6 rounded-2xl shadow-md transition-transform transform hover:scale-105 hover:shadow-lg relative"
             >
               {pkg.popular && (
-                <span className="absolute top-0 right-0 bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
+                <span className="absolute top-0 right-0 bg-slate-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
                   NÉPSZERŰ
                 </span>
               )}
               <h3 className="text-xl font-semibold mb-4 text-black">{pkg.name}</h3>
               <p className="text-2xl font-bold mb-2 text-black">{pkg.price}</p>
-              <p className="text-gray-700"> {pkg.duration}</p>
-              <p className="text-gray-700"> {pkg.images}</p>
+              <p className="text-slate-700"> {pkg.duration}</p>
+              <p className="text-slate-700"> {pkg.images}</p>
               <button
-                className="mt-4 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg transition-all hover:bg-gray-700 hover:shadow-lg"
+                className="mt-4 bg-slate-500 text-white font-bold py-2 px-4 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg"
                 onClick={scrollToContact}
               >
                 EZT VÁLASZTOM!
@@ -69,8 +69,8 @@ const PriceSection = () => {
         </div>
         
         <div className="md:w-1/2 mt-12 md:mt-0 text-left max-w-3xl mx-auto px-5">
-          <h3 className="text-2xl font-bold mb-4 text-black">Általános információk:</h3>
-          <ul className="list-disc list-inside text-gray-700">
+          <h3 className="text-2xl font-bold mb-4 mt-4 text-black">Általános információk:</h3>
+          <ul className="list-disc list-inside text-slate-700">
             <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, ez esetben a stúdió bérleti díja a csomagáron felül fizetendő (11.000-13.000 Ft).</li>
             <li>Az elkészült nyers képek közül Te választhatod ki a kedvenceidet, amiket utómunkázok, retusálok.</li>
             <li>A képek átadása digitális formában, Google Drive linken keresztül történik.</li>

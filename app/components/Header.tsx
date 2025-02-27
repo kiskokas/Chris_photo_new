@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-300 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
+    <header className="bg-gray-100 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
       <Link href="/" className="text-2xl hover:shadow-lg">Chris Photo</Link>
       <nav className="hidden md:flex space-x-4">
         <Link href="/" className="hover:shadow-lg">Kezdőoldal</Link>
@@ -97,16 +97,16 @@ const Header = () => {
             <div className="py-2 text-center">
               <span className="font-bold">Galéria</span>
               <div className="bg-gray-50 text-gray-700 rounded-md shadow-lg w-full">
-                <Link href="/gallery#portrait" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={toggleMenu}>
+                <Link href="/gallery#portrait" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Portré
                 </Link>
-                <Link href="/gallery#family" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={toggleMenu}>
+                <Link href="/gallery#family" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Családi
                 </Link>
-                <Link href="/gallery#child" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={toggleMenu}>
+                <Link href="/gallery#child" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Gyerek
                 </Link>
-                <Link href="/gallery#nature" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600" onClick={toggleMenu}>
+                <Link href="/gallery#nature" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Természet
                 </Link>
               </div>

@@ -42,7 +42,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="pt-20"
     >
-      <div className="p-5 bg-gray-100 dark:bg-gray-100">
+      <div className="p-5 bg-gray-50 dark:bg-gray-100">
         <h2 className="text-3xl font-bold text-gray-700 text-center mb-8">Galéria</h2>
         <div id="gallery" className="flex flex-col md:flex-row items-center justify-around p-5 gap-4">
           {categories.map((category) => (
