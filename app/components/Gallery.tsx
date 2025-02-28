@@ -61,7 +61,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
                 placeholder="blur"
                 blurDataURL={category.images[0].blurDataURL}
               />
-              <div className="absolute bottom-0 left-0 w-full bg-gray-300 text-center py-2 rounded-b-lg text-gray-700 font-medium  hover:bg-gray-700 hover:shadow-lg hover:text-gray-50">
+              <div className="absolute bottom-0 left-0 w-full bg-gray-300 text-center py-2 rounded-b-lg justify-around text-gray-700 font-medium  hover:bg-gray-700 hover:shadow-lg hover:text-gray-50">
                 {category.name}
               </div>
             </div>

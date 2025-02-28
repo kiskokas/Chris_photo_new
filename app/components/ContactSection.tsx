@@ -18,7 +18,7 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const formSubmitURL = "https://formsubmit.co/1e91d88ec76cfa5fda70c4d11dced0cc"; // Replace with your FormSubmit endpoint
+    const formSubmitURL = "https://usebasin.com/f/d77155659983"; // Replace with your FormSubmit endpoint
 
     const formPayload = new FormData();
     formPayload.append("name", formData.name);
@@ -45,7 +45,7 @@ const ContactSection = () => {
     }
   };
 
-  const formSubmitURL = "https://formsubmit.co/1e91d88ec76cfa5fda70c4d11dced0cc"; // This is where the FormSubmit URL should be defined
+  const formSubmitURL = "https://usebasin.com/f/d77155659983"; // This is where the FormSubmit URL should be defined
 
   return (
     <motion.div
