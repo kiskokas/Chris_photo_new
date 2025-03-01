@@ -18,24 +18,21 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const formSubmitURL = "https://usebasin.com/f/d77155659983"; // Replace with your FormSubmit endpoint
-
-    const formPayload = new FormData();
-    formPayload.append("name", formData.name);
-    formPayload.append("email", formData.email);
-    formPayload.append("message", formData.message);
-
     try {
-      const response = await fetch(formSubmitURL, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formPayload,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
       } else {
-        alert("Hiba történt az üzenet küldésekor.");
+        const errorData = await response.json();
+        alert(errorData.error || "Hiba történt az üzenet küldésekor.");
       }
     } catch (error) {
       console.error("Network error:", error);
@@ -44,8 +41,6 @@ const ContactSection = () => {
       setIsLoading(false);
     }
   };
-
-  const formSubmitURL = "https://usebasin.com/f/d77155659983"; // This is where the FormSubmit URL should be defined
 
   return (
     <motion.div
@@ -59,8 +54,6 @@ const ContactSection = () => {
         <form
           className="max-w-lg mx-auto"
           onSubmit={handleSubmit}
-          action={formSubmitURL}  // Now the form can access this variable
-          method="POST"
         >
           <div className="mb-4">
             <label className="block text-gray-700">Név</label>
@@ -69,7 +62,7 @@ const ContactSection = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-gray-400 focus:outline-none"
               required
             />
           </div>
@@ -80,7 +73,7 @@ const ContactSection = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-gray-400 focus:outline-none"
               required
             />
           </div>
@@ -90,7 +83,7 @@ const ContactSection = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-gray-400 focus:outline-none"
               required
             />
           </div>
@@ -102,12 +95,12 @@ const ContactSection = () => {
             {isLoading ? "Küldés..." : "Küldés"}
           </button>
         </form>
-
+  
         {/* Success Message */}
         {submitted && <p className="text-green-600 text-center mt-4">Üzenet sikeresen elküldve!</p>}
       </div>
     </motion.div>
-  );
+  );  
 };
 
 export default ContactSection;

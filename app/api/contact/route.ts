@@ -9,15 +9,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Minden mezőt ki kell tölteni!" }, { status: 400 });
     }
 
-    // Check if environment variables exist
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error("Missing email environment variables!");
       return NextResponse.json({ error: "Email configuration error" }, { status: 500 });
     }
 
-    // Nodemailer transport setup
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Change this if you're using a different provider
+      service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -26,13 +24,12 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER, // Fallback to sender email
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: "Új kapcsolatfelvétel",
       text: `Név: ${name}\nEmail: ${email}\nÜzenet: ${message}`,
     };
 
     await transporter.sendMail(mailOptions);
-
     return NextResponse.json({ message: "Üzenet sikeresen elküldve!" }, { status: 200 });
   } catch (error) {
     console.error("Error sending email:", error);
