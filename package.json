@@ -23,13 +23,18 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@google-cloud/recaptcha-enterprise": "^5.13.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-google-recaptcha": "^2.1.9",
+    "axios": "^1.8.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",
+    "react-google-recaptcha": "^3.1.0",
+    "resend": "^4.1.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
