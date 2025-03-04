@@ -10,7 +10,7 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,18 +20,10 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (!recaptchaRef.current) {
-      alert("reCAPTCHA is not available. Please try again.");
-      setIsLoading(false);
-      return;
-    }
-
     let token;
     try {
-      if (!recaptchaRef.current.executeAsync) {
-        throw new Error("reCAPTCHA execution failed.");
-      }
-
+      if (!recaptchaRef.current) throw new Error("reCAPTCHA is not available.");
+      
       token = await recaptchaRef.current.executeAsync();
       recaptchaRef.current.reset(); // Reset after getting the token
     } catch (error) {
@@ -68,16 +60,11 @@ const ContactSection = () => {
     } finally {
       setIsLoading(false);
     }
-};
-
+  };
 
   // Cleanup reCAPTCHA on component unmount to prevent timeout errors
   useEffect(() => {
-    return () => {
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
-    };
+    return () => recaptchaRef.current?.reset();
   }, []);
 
   return (
@@ -125,9 +112,9 @@ const ContactSection = () => {
 
           {/* reCAPTCHA Component */}
           <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey="6Le41-cqAAAAAHnGuscL_uVGOPUwqaZWGR-2yD9d"
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
             size="invisible"
+            ref={recaptchaRef}
           />
 
           <button
