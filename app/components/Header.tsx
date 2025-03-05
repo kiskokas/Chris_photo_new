@@ -62,8 +62,8 @@ const Header = () => {
                   <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Családi
                   </Link>
-                  <Link href="/gallery#child" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
-                    Gyerek
+                  <Link href="/gallery#season" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
+                    Szezonális
                   </Link>
                   <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Természet

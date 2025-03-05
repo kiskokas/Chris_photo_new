@@ -16,18 +16,18 @@ async function getImages() {
     .readdirSync(imagesDir)
     .filter((file) => validExtensions.includes(path.extname(file).toLowerCase()));
 
-  type CategoryName = "Portrait" | "Family" | "Child" | "Nature" | "Uncategorized";
+  type CategoryName = "Portré" | "Családi" | "Szezonális" | "Természet" | "Uncategorized";
 
   const categorizedImages: Record<CategoryName, { src: string; blurDataURL: string }[]> = {
-    Portrait: [],
-    Family: [],
-    Child: [],
-    Nature: [],
+    Portré: [],
+    Családi: [],
+    Szezonális: [],
+    Természet: [],
     Uncategorized: []
   };
 
   for (const file of imageFiles) {
-    const category = getCategoryFromFilename(file) as CategoryName; // Ensure the type matches
+    const category = getCategoryFromFilename(file) as CategoryName;
     const src = `/images/${file}`;
     const filePath = path.join(imagesDir, file);
     const buffer = fs.readFileSync(filePath);
@@ -46,10 +46,10 @@ async function getImages() {
 }
 
 function getCategoryFromFilename(filename: string): string {
-  if (filename.startsWith("portrait")) return "Portrait";
-  if (filename.startsWith("family")) return "Family";
-  if (filename.startsWith("child")) return "Child";
-  if (filename.startsWith("nature")) return "Nature";
+  if (filename.startsWith("portrait")) return "Portré";
+  if (filename.startsWith("family")) return "Családi";
+  if (filename.startsWith("season")) return "Szezonális";
+  if (filename.startsWith("nature")) return "Természet";
   return "Uncategorized"; // Default category if none matched
 }
 

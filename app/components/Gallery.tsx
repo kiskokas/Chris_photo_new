@@ -36,47 +36,42 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="pt-20"
-    >
-      <div className="p-5 bg-gray-50 dark:bg-gray-100">
-        <h2 className="text-3xl font-bold text-gray-700 text-center mb-8">Galéria</h2>
-        <div id="gallery" className="flex flex-col md:flex-row items-center justify-around p-5 gap-4">
-          {categories.map((category) => (
-            <div
-              id={category.name.toLowerCase()} // Ensure IDs are unique and lowercase
-              key={category.name}
-              className="relative w-[300px] h-[400px] overflow-hidden flex justify-center items-center cursor-pointer hover:scale-105 hover:shadow-lg"
-              onClick={() => openLightbox(category)}
-            >
-              <Image
-                src={category.images[0].src}
-                alt={`${category.name} Image`}
-                width={300}
-                height={400}
-                className="object-cover w-full h-full rounded-lg shadow-lg transition-transform"
-                placeholder="blur"
-                blurDataURL={category.images[0].blurDataURL}
-              />
-              <div className="absolute bottom-0 left-0 w-full bg-gray-300 text-center py-2 rounded-b-lg justify-around text-gray-700 font-medium  hover:bg-gray-700 hover:shadow-lg hover:text-gray-50">
-                {category.name}
-              </div>
-            </div>
-          ))}
-          {isOpen && currentCategory && (
-            <Lightbox
-              slides={currentCategory.images.map((image) => ({ src: image.src }))}
-              open={isOpen}
-              close={() => setIsOpen(false)}
-              controller={{ closeOnBackdropClick: true }}
+    <div className="container mx-auto px-4">
+      <h1 className="text-4xl font-bold text-center my-8">Galéria</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {categories.map((category) => (
+          <motion.div
+            key={category.name}
+            className="relative cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => openLightbox(category)}
+          >
+            <Image
+              src={category.images[0].src}
+              alt={category.name}
+              width={300}
+              height={200}
+              className="w-full h-64 object-cover rounded-lg"
             />
-          )}
-        </div>
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-lg">
+              <h2 className="text-white text-2xl font-semibold">{category.name}</h2>
+            </div>
+            <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-sm">
+              {category.images.length} photos
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </motion.div>
+      {isOpen && currentCategory && (
+          <Lightbox
+            slides={currentCategory.images.map((image) => ({ src: image.src }))}
+            open={isOpen}
+            close={() => setIsOpen(false)}
+            controller={{ closeOnBackdropClick: true }}
+            />
+      )}
+    </div>
   );
 };
 
