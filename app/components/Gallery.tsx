@@ -64,9 +64,26 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
   }, [isOpen]);
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold text-center my-8">Galéria</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <motion.div 
+      className="container mx-auto px-4 pt-20"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.h1 
+        className="text-4xl font-bold text-center my-8"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        Galéria
+      </motion.h1>
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
         {categories.map((category) => (
           <motion.div
             key={category.name}
@@ -90,7 +107,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
       {isOpen && currentCategory && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div ref={lightboxRef} className="bg-gray rounded-lg overflow-hidden max-w-4xl w-full">
@@ -133,7 +150,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

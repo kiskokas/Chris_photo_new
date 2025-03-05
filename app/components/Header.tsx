@@ -104,7 +104,7 @@ const Header = () => {
                   Családi
                 </Link>
                 <Link href="/gallery#child" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
-                  Gyerek
+                  Szezonális
                 </Link>
                 <Link href="/gallery#nature" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Természet
