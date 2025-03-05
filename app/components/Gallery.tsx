@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 type ImageData = {
@@ -19,21 +17,51 @@ type Category = {
 const Gallery = ({ categories }: { categories: Category[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const lightboxRef = useRef<HTMLDivElement>(null);
 
   const openLightbox = (category: Category) => {
     setCurrentCategory(category);
+    setCurrentIndex(0);
     setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (window.location.hash) {
-      const hash = window.location.hash.substring(1);
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+  const closeLightbox = () => {
+    setIsOpen(false);
+    setCurrentCategory(null);
+  };
+
+  const nextImage = () => {
+    if (currentCategory) {
+      setCurrentIndex((prevIndex) => 
+        (prevIndex + 1) % currentCategory.images.length
+      );
     }
-  }, []);
+  };
+
+  const prevImage = () => {
+    if (currentCategory) {
+      setCurrentIndex((prevIndex) => 
+        (prevIndex - 1 + currentCategory.images.length) % currentCategory.images.length
+      );
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (lightboxRef.current && !lightboxRef.current.contains(event.target as Node)) {
+        closeLightbox();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div className="container mx-auto px-4">
@@ -64,12 +92,46 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
         ))}
       </div>
       {isOpen && currentCategory && (
-          <Lightbox
-            slides={currentCategory.images.map((image) => ({ src: image.src }))}
-            open={isOpen}
-            close={() => setIsOpen(false)}
-            controller={{ closeOnBackdropClick: true }}
-            />
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
+          <div ref={lightboxRef} className="bg-gray rounded-lg overflow-hidden max-w-4xl w-full">
+            <div className="relative h-[calc(100vh-200px)] overflow-y-auto">
+              <button 
+                className="absolute top-4 right-4 text-white text-2xl z-10"
+                onClick={closeLightbox}
+              >
+                &times;
+              </button>
+              <Image
+                src={currentCategory.images[currentIndex].src}
+                alt={`Image ${currentIndex + 1}`}
+                layout="fill"
+                objectFit="contain"
+              />
+              <button 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
+                onClick={prevImage}
+              >
+                &#8249;
+              </button>
+              <button 
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
+                onClick={nextImage}
+              >
+                &#8250;
+              </button>
+            </div>
+            <div className="bg-gray p-4 flex justify-center">
+              {currentCategory.images.map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-3 w-3 rounded-full transition-colors mx-1 ${
+                    index === currentIndex ? "bg-gray-500" : "bg-gray-300"
+                  }`}
+                ></span>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
