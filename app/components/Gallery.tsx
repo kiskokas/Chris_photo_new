@@ -19,6 +19,8 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
   const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const lightboxRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const openLightbox = (category: Category) => {
     setCurrentCategory(category);
@@ -44,6 +46,24 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       setCurrentIndex((prevIndex) => 
         (prevIndex - 1 + currentCategory.images.length) % currentCategory.images.length
       );
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      nextImage();
+    }
+
+    if (touchStart - touchEnd < -75) {
+      prevImage();
     }
   };
 
@@ -111,7 +131,16 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       {isOpen && currentCategory && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div ref={lightboxRef} className="bg-gray rounded-lg overflow-hidden max-w-4xl w-full">
-            <div className="relative h-[calc(100vh-200px)] overflow-y-auto">
+            <div 
+              className="relative h-[calc(100vh-200px)] overflow-y-auto"
+              style={{
+                overscrollBehavior: 'contain',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <button 
                 className="absolute top-4 right-4 text-white text-2xl z-10"
                 onClick={closeLightbox}
@@ -123,6 +152,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
                 alt={`Image ${currentIndex + 1}`}
                 layout="fill"
                 objectFit="contain"
+                priority
               />
               <button 
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
