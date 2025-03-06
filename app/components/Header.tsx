@@ -56,16 +56,16 @@ const Header = () => {
                 className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-300 rounded-md shadow-lg z-50"
               >
                 <div className="py-1" role="menu">
-                  <Link href="/gallery#portrait" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
+                  <Link href="/gallery#portré" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Portré
                   </Link>
-                  <Link href="/gallery#family" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
+                  <Link href="/gallery#családi" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Családi
                   </Link>
-                  <Link href="/gallery#season" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
+                  <Link href="/gallery#szezonális" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Szezonális
                   </Link>
-                  <Link href="/gallery#nature" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
+                  <Link href="/gallery#természet" className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50">
                     Természet
                   </Link>
                 </div>
@@ -97,16 +97,16 @@ const Header = () => {
             <div className="py-2 text-center">
               <span className="font-bold">Galéria</span>
               <div className="bg-gray-50 text-gray-700 rounded-md shadow-lg w-full">
-                <Link href="/gallery#portrait" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
+                <Link href="/gallery#portré" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Portré
                 </Link>
-                <Link href="/gallery#family" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
+                <Link href="/gallery#családi" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Családi
                 </Link>
-                <Link href="/gallery#child" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
+                <Link href="/gallery#szezonális" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Szezonális
                 </Link>
-                <Link href="/gallery#nature" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
+                <Link href="/gallery#természet" className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50" onClick={toggleMenu}>
                   Természet
                 </Link>
               </div>

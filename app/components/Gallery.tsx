@@ -36,7 +36,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       transition={{ duration: 0.5 }}
     >
       <motion.h1 
-        className="text-4xl font-bold text-center my-8"
+        className="text-4xl font-bold text-center my-8 text-black"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
@@ -51,6 +51,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
       >
         {categories.map((category) => (
           <motion.div
+            id={category.name.toLowerCase()}
             key={category.name}
             className="relative cursor-pointer"
             whileHover={{ scale: 1.05 }}
