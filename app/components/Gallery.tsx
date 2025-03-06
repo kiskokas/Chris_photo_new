@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
+// Type definitions
 type ImageData = {
   src: string;
   blurDataURL: string;
@@ -18,70 +21,12 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const lightboxRef = useRef<HTMLDivElement>(null);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
 
-  const openLightbox = (category: Category) => {
+  const openLightbox = (category: Category, index: number) => {
     setCurrentCategory(category);
-    setCurrentIndex(0);
+    setCurrentIndex(index);
     setIsOpen(true);
   };
-
-  const closeLightbox = () => {
-    setIsOpen(false);
-    setCurrentCategory(null);
-  };
-
-  const nextImage = () => {
-    if (currentCategory) {
-      setCurrentIndex((prevIndex) => 
-        (prevIndex + 1) % currentCategory.images.length
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (currentCategory) {
-      setCurrentIndex((prevIndex) => 
-        (prevIndex - 1 + currentCategory.images.length) % currentCategory.images.length
-      );
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 75) {
-      nextImage();
-    }
-
-    if (touchStart - touchEnd < -75) {
-      prevImage();
-    }
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (lightboxRef.current && !lightboxRef.current.contains(event.target as Node)) {
-        closeLightbox();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
 
   return (
     <motion.div 
@@ -110,7 +55,7 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
             className="relative cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => openLightbox(category)}
+            onClick={() => openLightbox(category, 0)}
           >
             <Image
               src={category.images[0].src}
@@ -129,56 +74,33 @@ const Gallery = ({ categories }: { categories: Category[] }) => {
         ))}
       </motion.div>
       {isOpen && currentCategory && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <div ref={lightboxRef} className="bg-gray rounded-lg overflow-hidden max-w-4xl w-full">
-            <div 
-              className="relative h-[calc(100vh-200px)] overflow-y-auto"
-              style={{
-                overscrollBehavior: 'contain',
-                WebkitOverflowScrolling: 'touch'
-              }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <button 
-                className="absolute top-4 right-4 text-white text-2xl z-10"
-                onClick={closeLightbox}
-              >
-                &times;
-              </button>
-              <Image
-                src={currentCategory.images[currentIndex].src}
-                alt={`Image ${currentIndex + 1}`}
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-              <button 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
-                onClick={prevImage}
-              >
-                &#8249;
-              </button>
-              <button 
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl"
-                onClick={nextImage}
-              >
-                &#8250;
-              </button>
-            </div>
-            <div className="bg-gray p-4 flex justify-center">
-              {currentCategory.images.map((_, index) => (
-                <span
-                  key={index}
-                  className={`h-3 w-3 rounded-full transition-colors mx-1 ${
-                    index === currentIndex ? "bg-gray-500" : "bg-gray-300"
-                  }`}
-                ></span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <Lightbox
+          slides={currentCategory.images.map((image) => ({ src: image.src }))}
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          index={currentIndex}
+          on={{ view: ({ index }) => setCurrentIndex(index) }}
+          controller={{ closeOnBackdropClick: true }}
+          render={{
+            slide: ({ slide }) => (
+              <div className="flex flex-col items-center">
+                <div className="relative w-auto max-w-full max-h-[80vh] flex items-center justify-center">
+                  <Image src={slide.src} alt="Gallery Image" width={800} height={600} className="max-w-full max-h-[80vh] object-contain" />
+                </div>
+                <div className="mt-4 flex justify-center w-full">
+                  {currentCategory.images.map((_, index) => (
+                    <span
+                      key={index}
+                      className={`h-3 w-3 rounded-full transition-colors mx-1 ${
+                        index === currentIndex ? "bg-gray-500" : "bg-gray-300"
+                      }`}
+                    ></span>
+                  ))}
+                </div>
+              </div>
+            )
+          }}
+        />
       )}
     </motion.div>
   );
