@@ -117,7 +117,7 @@ const Header = () => {
       <div className="md:hidden">
         <button onClick={toggleMenu} className="focus:outline-none">
           <motion.div animate={{ rotate: isOpen ? 180 : 0 }} className="text-2xl">
-            {isOpen ? "âœ–" : "â˜°"}
+          {isOpen ? "✖" : "☰"}
           </motion.div>
         </button>
       </div>
