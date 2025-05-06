@@ -9,7 +9,7 @@ const PriceSection = () => {
   const packages = [
     {
       name: "Mini csomag",
-      price: "20.900 Ft",
+      price: "24.900 Ft",
       duration: "0,5-1 óra fotózás",
       images: "10 db kidolgozott kép átadása digitális formában",
     },

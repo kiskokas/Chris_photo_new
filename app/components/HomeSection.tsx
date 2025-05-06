@@ -1,4 +1,3 @@
-// HomeSection másolat.txt
 "use client";
 
 import { motion } from "framer-motion";
@@ -42,15 +41,15 @@ const HomeSection = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
 
         <div className="relative z-10 text-center">
-          <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
+          <h1 className="text-5xl font-bold mb-4 text-header-light drop-shadow-lg">
             Lehetek a fotósod?
           </h1>
-          <p className="text-2xl font-bold mb-8 text-white drop-shadow-lg">
+          <p className="text-2xl font-bold mb-8 text-header-light drop-shadow-lg">
             Pillanatok megörökítése, emlékek teremtése
           </p>
           <Link
             href="#prices"
-            className="bg-slate-500 text-white font-bold py-3 px-6 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg inline-block"
+            className="bg-header-dark text-header-light font-bold py-3 px-6 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg inline-block"
           >
             Csomagok megtekintése
           </Link>

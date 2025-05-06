@@ -14,7 +14,7 @@ const AboutSection = () => {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div id="about" className="flex flex-col md:flex-row items-center justify-around p-10 bg-gray-100">
+      <div id="about" className="flex flex-col md:flex-row items-center justify-around p-10 bg-header-light dark:bg-header-dark">
         <Image 
           src="/images/cover_photo.png" 
           alt="Nagy Krisztian" 
