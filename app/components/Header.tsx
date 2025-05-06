@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from 'next/image';
+
+const MotionLink = motion(Link);
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,12 +36,41 @@ const Header = () => {
 
   return (
     <header className="bg-gray-100 text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50">
-      <Link href="/" className="text-2xl hover:shadow-lg">Chris Photo</Link>
+      <Link href="/" className="hover:shadow-lg">
+        <Image
+          src="/images/logo.png"
+          alt="Krisztian PhotoArt Logo"
+          width={150}
+          height={300}
+          className="logo"
+        />
+      </Link>
       <nav className="hidden md:flex space-x-4">
-        <Link href="/" className="hover:shadow-lg">Kezdőoldal</Link>
-        <Link href="/#about" className="hover:shadow-lg">Rólam</Link>
-        <Link href="/#prices" className="hover:shadow-lg">Csomagok és árak</Link>
-        <div 
+        <MotionLink // Changed Link to motion.Link
+          href="/"
+          className="hover:shadow-lg"
+          whileHover={{ scale: 1.1 }} // Added hover effect
+          transition={{ duration: 0.2 }} // Added transition
+        >
+          Kezdőoldal
+        </MotionLink>
+        <MotionLink // Changed Link to motion.Link
+          href="/#about"
+          className="hover:shadow-lg"
+          whileHover={{ scale: 1.1 }} // Added hover effect
+          transition={{ duration: 0.2 }} // Added transition
+        >
+          Rólam
+        </MotionLink>
+        <MotionLink // Changed Link to motion.Link
+          href="/#prices"
+          className="hover:shadow-lg"
+          whileHover={{ scale: 1.1 }} // Added hover effect
+          transition={{ duration: 0.2 }} // Added transition
+        >
+          Csomagok és Árak
+        </MotionLink>
+        <div
           className="relative inline-block text-left"
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
@@ -73,12 +105,19 @@ const Header = () => {
             )}
           </AnimatePresence>
         </div>
-        <Link href="/#contact" className="hover:shadow-lg">Kapcsolat</Link>
+        <MotionLink // Changed Link to motion.Link
+          href="/#contact"
+          className="hover:shadow-lg"
+          whileHover={{ scale: 1.1 }} // Added hover effect
+          transition={{ duration: 0.2 }} // Added transition
+        >
+          Kapcsolat
+        </MotionLink>
       </nav>
       <div className="md:hidden">
         <button onClick={toggleMenu} className="focus:outline-none">
           <motion.div animate={{ rotate: isOpen ? 180 : 0 }} className="text-2xl">
-            {isOpen ? "✖" : "☰"}
+            {isOpen ? "âœ–" : "â˜°"}
           </motion.div>
         </button>
       </div>

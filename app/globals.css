@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.logo {
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Or try 'screen' */
+}

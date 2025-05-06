@@ -12,6 +12,7 @@
     "@ark-ui/react": "^4.9.2",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.4.4",
+    "friendly-challenge": "^0.9.19",
     "next": "15.1.7",
     "nodemailer": "^6.10.0",
     "plaiceholder": "^3.0.0",

@@ -16,8 +16,8 @@ const AboutSection = () => {
     >
       <div id="about" className="flex flex-col md:flex-row items-center justify-around p-10 bg-gray-100">
         <Image 
-          src="/images/about-photo.jpg" 
-          alt="Your Name" 
+          src="/images/cover_photo.png" 
+          alt="Nagy Krisztian" 
           width={500}
           height={500}
           className="w-1/3 rounded-full" />
