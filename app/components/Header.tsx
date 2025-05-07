@@ -87,30 +87,30 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5 }}
-                className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-300 rounded-md shadow-lg z-50"
+                className="absolute right-0 mt-2 w-48 bg-header-light dark:bg-header-dark rounded-md shadow-lg z-50"
               >
                 <div className="py-1" role="menu">
                   <Link
                     href="/gallery#portré"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                    className="block px-4 py-2 text-sm text-gray-700 rounded-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   >
                     Portré
                   </Link>
                   <Link
                     href="/gallery#családi"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                    className="block px-4 py-2 text-sm text-gray-700 rounded-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   >
                     Családi
                   </Link>
                   <Link
                     href="/gallery#szezonális"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                    className="block px-4 py-2 text-sm text-gray-700 rounded-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   >
                     Szezonális
                   </Link>
                   <Link
                     href="/gallery#természet"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                    className="block px-4 py-2 text-sm text-gray-700 rounded-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   >
                     Természet
                   </Link>
@@ -142,51 +142,51 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-2rem right-0 bg-gray-300 text-gray-700 flex flex-col py-1 z-50 shadow-lg"
+            className="absolute top-16 left-2rem right-0 bg-header-light dark:bg-header-dark text-gray-700 flex flex-col py-1 z-50 rounded-2xl shadow-lg"
           >
-            <Link href="/" className="py-1 text-center" onClick={toggleMenu}>
+            <Link href="/" className="py-1 text-center hover:shadow-lg" onClick={toggleMenu}>
               Kezdőoldal
             </Link>
-            <Link href="/#about" className="py-1 text-center" onClick={toggleMenu}>
+            <Link href="/#about" className="py-1 text-center hover:shadow-lg" onClick={toggleMenu}>
               Rólam
             </Link>
-            <Link href="/#prices" className="py-1 text-center" onClick={toggleMenu}>
+            <Link href="/#prices" className="py-1 text-center hover:shadow-lg" onClick={toggleMenu}>
               Csomagok és árak
             </Link>
             <div className="py-2 text-center">
               <span className="font-bold">Galéria</span>
-              <div className="bg-gray-50 text-gray-700 rounded-md shadow-lg w-full">
+              <div className="bg-header-light_dark dark:bg-header-dark text-gray-700 rounded-md shadow-lg w-full">
                 <Link
                   href="/gallery#portré"
-                  className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                  className="block px-4 py-1 text-sm text-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   onClick={toggleMenu}
                 >
                   Portré
                 </Link>
                 <Link
                   href="/gallery#családi"
-                  className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                  className="block px-4 py-1 text-sm text-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   onClick={toggleMenu}
                 >
                   Családi
                 </Link>
                 <Link
                   href="/gallery#szezonális"
-                  className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                  className="block px-4 py-1 text-sm text-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   onClick={toggleMenu}
                 >
                   Szezonális
                 </Link>
                 <Link
                   href="/gallery#természet"
-                  className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
+                  className="block px-4 py-1 text-sm text-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-50"
                   onClick={toggleMenu}
                 >
                   Természet
                 </Link>
               </div>
             </div>
-            <Link href="/#contact" className="py-1 text-center" onClick={toggleMenu}>
+            <Link href="/#contact" className="py-1 text-center hover:shadow-lg" onClick={toggleMenu}>
               Kapcsolat
             </Link>
           </motion.div>

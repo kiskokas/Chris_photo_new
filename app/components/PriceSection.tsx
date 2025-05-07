@@ -42,7 +42,7 @@ const PriceSection = () => {
       id="prices"
     >
       <div className="container mx-auto text-center px-3">
-        <h2 className="text-3xl font-bold mb-8 text-header-black">Árak</h2>
+        <h2 className="text-3xl font-bold mb-8 text-header-dark dark:text-black">Árak</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg, index) => (
             <motion.div
