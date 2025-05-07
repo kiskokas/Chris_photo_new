@@ -7,7 +7,7 @@ const DarkModeToggle = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-    <div className="fixed bottom-20 left-5 z-50 flex flex-col items-center"> {/* Adjusted positioning and flex container */}
+    <div className="fixed bottom-5 left-5 z-50 flex flex-col items-center"> {/* Adjusted positioning and flex container */}
       <button
         onClick={toggleDarkMode}
         className="relative inline-flex items-center h-6 rounded-full transition-colors duration-200 focus:outline-none mb-2" // Added mb-2 for spacing
