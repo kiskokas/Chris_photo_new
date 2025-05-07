@@ -57,7 +57,7 @@ export default async function GalleryPage() {
   const categories = await getImages();
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gray-50">
+    <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-header-light_dark">
       <Header />
       <Gallery categories={categories} />
       <SpeedInsights />

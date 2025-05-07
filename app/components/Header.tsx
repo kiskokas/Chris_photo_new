@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from 'next/image';
+import { FaSortDown } from "react-icons/fa";
 
 const MotionLink = motion(Link);
 
@@ -77,7 +78,7 @@ const Header = () => {
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
           <button className="hover:shadow-lg focus:outline-none flex items-center">
-            Galéria <span className="ml-1">+</span>
+            Galéria <FaSortDown />
           </button>
           <AnimatePresence>
             {isDropdownOpen && (

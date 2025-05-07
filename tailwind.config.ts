@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class', // Enable dark mode via class strategy
+  darkMode: 'class',
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,9 +12,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        header: { // Define a header color palette
-          light: '#F4E8DE', // Light mode header color
-          dark: '#AB9079', // Dark mode header color (example dark gray)
+        header: {
+          light: '#F4E8DE',
+          light_dark: '#BB9D84',
+          dark: '#AB9079',
         },
         // Primary colors
         primary: {

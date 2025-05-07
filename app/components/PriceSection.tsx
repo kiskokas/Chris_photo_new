@@ -38,20 +38,20 @@ const PriceSection = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="py-16 bg-slate-50"
+      className="py-16 bg-slate-50 dark:bg-header-light_dark"
       id="prices"
     >
       <div className="container mx-auto text-center px-3">
-        <h2 className="text-3xl font-bold mb-8 text-black">Árak</h2>
+        <h2 className="text-3xl font-bold mb-8 text-header-black">Árak</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
-              className="bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-md transition-transform transform hover:scale-105 hover:shadow-lg relative" // Added glassmorphism classes
+              className="bg-white/30 dark:bg-header-dark backdrop-blur-md p-6 rounded-2xl shadow-md transition-transform transform hover:scale-105 hover:shadow-lg relative" // Added glassmorphism classes
               whileHover={{ scale: 1.1 }} // Added scale on hover
             >
               {pkg.popular && (
-                <span className="absolute top-0 right-0 bg-slate-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
+                <span className="absolute top-0 right-0 bg-header-dark dark:bg-header-light text-header-light dark:text-header-dark text-xs font-bold px-2 py-1 rounded-bl-lg">
                   NÉPSZERŰ
                 </span>
               )}
@@ -60,7 +60,7 @@ const PriceSection = () => {
               <p className="text-slate-700"> {pkg.duration}</p>
               <p className="text-slate-700"> {pkg.images}</p>
               <button
-                className="mt-4 bg-slate-500 text-white font-bold py-2 px-4 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg"
+                className="mt-4 bg-header-dark dark:bg-header-light text-header-light dark:text-header-dark font-bold py-2 px-4 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg"
                 onClick={scrollToContact}
               >
                 EZT VÁLASZTOM!
