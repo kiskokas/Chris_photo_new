@@ -9,22 +9,22 @@ const PriceSection = () => {
   const packages = [
     {
       name: "Mini csomag",
-      price: "24.900 Ft",
+      price: "29.900 Ft",
       duration: "0,5-1 óra fotózás",
-      images: "10 db kidolgozott kép átadása digitális formában",
+      images: "20 db kidolgozott kép átadása digitális formában",
     },
     {
       name: "Normál csomag",
       price: "34.900 Ft",
       duration: "1-1,5 óra fotózás",
-      images: "25 db kidolgozott kép átadása digitális formában",
+      images: "35 db kidolgozott kép átadása digitális formában",
       popular: true,
     },
     {
       name: "Prémium csomag",
       price: "44.900 Ft",
       duration: "1,5-2 óra fotózás",
-      images: "35 db kidolgozott kép átadása digitális formában",
+      images: "45 db kidolgozott kép átadása digitális formában",
     },
   ];
 
