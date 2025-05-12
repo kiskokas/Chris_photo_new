@@ -117,7 +117,7 @@ const ContactSection = () => {
         </form>
 
         {/* Success Message */}
-        {submitted && <p className="text-green-600 text-center mt-4">Üzenet sikeresen elküldve!</p>}
+        {submitted && <p className="text-green-600 dark:text-green-100 text-center mt-4">Üzenet sikeresen elküldve!</p>}
       </div>
     </motion.div>
   );

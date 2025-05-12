@@ -72,7 +72,7 @@ const PriceSection = () => {
         <div className="md:w-1/2 mt-12 md:mt-0 text-left max-w-3xl mx-auto px-5">
           <h3 className="text-2xl font-bold mb-4 mt-4 text-black">Általános információk:</h3>
           <ul className="list-disc list-inside text-slate-700">
-            <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, ez esetben a stúdió bérleti díja a csomagáron felül fizetendő (11.000-13.000 Ft).</li>
+            <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, ez esetben a stúdió bérleti díja a csomagáron felül fizetendő (8000 Ft).</li>
             <li>Az elkészült nyers képek közül Te választhatod ki a kedvenceidet, amiket utómunkázok, retusálok.</li>
             <li>A képek átadása digitális formában, Google Drive linken keresztül történik.</li>
             <li>A képek átadására a fotózástól számítva 1 héttel később számíthatsz.</li>
