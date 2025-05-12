@@ -3,9 +3,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, packageName } = await req.json();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !packageName) {
       return NextResponse.json({ error: "Minden mezőt ki kell tölteni!" }, { status: 400 });
     }
 
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: "Új kapcsolatfelvétel",
-      text: `Név: ${name}\nEmail: ${email}\nÜzenet: ${message}`,
+      text: `Csomag: ${packageName}\nNév: ${name}\nEmail: ${email}\nÜzenet: ${message}`,
     };
 
     await transporter.sendMail(mailOptions);
