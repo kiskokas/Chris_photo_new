@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { usePackage } from "@/app/components/PackageContext"; // Import usePackage
 
 const PriceSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { setSelectedPackage } = usePackage(); // Access setSelectedPackage from context
 
   const packages = [
     {
@@ -28,7 +30,8 @@ const PriceSection = () => {
     },
   ];
 
-  const scrollToContact = () => {
+  const scrollToContact = (packageName: string) => { // Pass packageName
+    setSelectedPackage(packageName); // Update context with package name
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -61,7 +64,7 @@ const PriceSection = () => {
               <p className="text-slate-700"> {pkg.images}</p>
               <button
                 className="mt-4 bg-header-dark dark:bg-header-light text-header-light dark:text-header-dark font-bold py-2 px-4 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg"
-                onClick={scrollToContact}
+                onClick={() => scrollToContact(pkg.name)} // Pass package name to scrollToContact
               >
                 EZT VÁLASZTOM!
               </button>

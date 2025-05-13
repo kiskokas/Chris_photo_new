@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/components/ThemeProvider"; // Import ThemeProvider
 import DarkModeToggle from "@/app/components/DarkModeToggle";
+import { PackageProvider } from "@/app/components/PackageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +31,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          {children}
-          <DarkModeToggle /> {/* Render DarkModeToggle */}
+          <PackageProvider> {/* Wrap with PackageProvider */}
+            {children}
+            <DarkModeToggle />
+          </PackageProvider>
         </ThemeProvider>
       </body>
     </html>

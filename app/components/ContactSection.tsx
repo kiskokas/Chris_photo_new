@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Import useEffect
+import { usePackage } from "@/app/components/PackageContext"; // Import usePackage
 
 const ContactSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { selectedPackage } = usePackage(); // Access selectedPackage from context
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,6 +16,13 @@ const ContactSection = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    // Update formData when selectedPackage value changes
+    if (selectedPackage) {
+      setFormData(prev => ({ ...prev, packageName: selectedPackage }));
+    }
+  }, [selectedPackage]); 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -90,10 +99,10 @@ const ContactSection = () => {
               className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-gray-400 focus:outline-none"
             >
               <option value="">Válassz csomagot</option>
-              <option value="Mini">Mini csomag</option>
-              <option value="Normal">Normál csomag</option>
-              <option value="Premium">Prémium csomag</option>
-              <option value="Ajandekutalvany">Ajándékutalvány</option>
+              <option value="Mini csomag">Mini csomag</option>
+              <option value="Normál csomag">Normál csomag</option>
+              <option value="Prémium csomag">Prémium csomag</option>
+              <option value="Ajándékutalvány">Ajándékutalvány</option>
             </select>
           </div>
 
