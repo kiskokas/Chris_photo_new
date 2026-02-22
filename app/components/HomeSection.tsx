@@ -42,10 +42,10 @@ const HomeSection = () => {
 
         <div className="relative z-10 text-center">
           <h1 className="text-5xl font-bold mb-4 text-header-light drop-shadow-lg">
-            Lehetek a fotósod?
+            Kész vagy megörökíteni a legjobb pillanataidat?
           </h1>
           <p className="text-2xl font-bold mb-8 text-header-light drop-shadow-lg">
-            Pillanatok megörökítése, emlékek teremtése
+            A legjobb emlékek egy kattintással kezdődnek.
           </p>
           <Link
             href="#prices"

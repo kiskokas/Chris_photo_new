@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`bg-header-light dark:bg-header-dark text-gray-700 p-5 flex justify-between items-center fixed w-full top-0 z-50`}>
+    <header className={`bg-header-light dark:bg-header-dark text-gray-700 dark:text-header-light p-5 flex justify-between items-center fixed w-full top-0 z-50`}>
       <Link href="/" className="hover:shadow-lg">
         <Image
           src="/images/logo.png"

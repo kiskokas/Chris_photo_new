@@ -60,8 +60,8 @@ const PriceSection = () => {
               )}
               <h3 className="text-xl font-semibold mb-4 text-black">{pkg.name}</h3>
               <p className="text-2xl font-bold mb-2 text-black">{pkg.price}</p>
-              <p className="text-slate-700"> {pkg.duration}</p>
-              <p className="text-slate-700"> {pkg.images}</p>
+              <p className="text-slate-700 dark:text-header-light"> {pkg.duration}</p>
+              <p className="text-slate-700 dark:text-header-light"> {pkg.images}</p>
               <button
                 className="mt-4 bg-header-dark dark:bg-header-light text-header-light dark:text-header-dark font-bold py-2 px-4 rounded-lg transition-all hover:bg-slate-700 hover:shadow-lg"
                 onClick={() => scrollToContact(pkg.name)} // Pass package name to scrollToContact
@@ -74,7 +74,7 @@ const PriceSection = () => {
 
         <div className="md:w-1/2 mt-12 md:mt-0 text-left max-w-3xl mx-auto px-5">
           <h3 className="text-2xl font-bold mb-4 mt-4 text-black">Általános információk:</h3>
-          <ul className="list-disc list-inside text-slate-700">
+          <ul className="list-disc list-inside text-slate-700 dark:text-header-light">
             <li>Stúdióban történő fotózásra Szombathelyen van lehetőség, ez esetben a stúdió bérleti díja a csomagáron felül fizetendő (8000 Ft).</li>
             <li>Az elkészült nyers képek közül Te választhatod ki a kedvenceidet, amiket utómunkázok, retusálok.</li>
             <li>A képek átadása digitális formában, Google Drive linken keresztül történik.</li>

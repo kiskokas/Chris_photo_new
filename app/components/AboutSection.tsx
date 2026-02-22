@@ -23,7 +23,7 @@ const AboutSection = () => {
           className="w-1/3 rounded-full" />
         <div className="md:w-1/2 mt-5 md:mt-0 text-center md:text-left text-black">
           <h2 className="text-3xl font-bold mb-4">Rólam</h2>
-          <p>Helló! Krisztián vagyok, szenvedélyes fotós Szombathelyen. Szeretem lencsevégre kapni a világ szépségét. Elindult az utam a fotózás felé...</p>
+          <p>Szia, Nagy Krisztián vagyok, a Krisztián PhotoArt megálmodója. A fotózás számomra nem csupán munka, hanem egy örök játék a fénnyel, a pillanattal és az érzelmekkel. Szeretem megörökíteni az élet legőszintébb momentumait, a gyermeki kacajt, a családi öleléseket, a természet csendjét vagy épp kedvenceink bolondos pillanatait. Hiszem, hogy a legszebb képek nem beállítottak, hanem megélt pillanatok, tele élettel és nevetéssel.</p>
         </div>
       </div>
     </motion.div>
